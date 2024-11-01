@@ -22,7 +22,7 @@ export function fetchImages(query, page = 1) {
       if (data.hits.length === 0) {
         console.warn('No images found for the query');
       }
-      console.log('Fetched data:', data); // Log the response data
+      console.log('Fetched data:', data);
       return data;
     })
     .catch(error => {
