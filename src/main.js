@@ -26,7 +26,7 @@ searchForm.addEventListener('submit', e => {
   clearGallery();
   showLoader();
 
-  fetchImages(query, page)
+  fetchImages(query)
     .then(data => {
       if (data.hits.length === 0) {
         iziToast.info({
@@ -40,26 +40,6 @@ searchForm.addEventListener('submit', e => {
     })
     .catch(error => {
       iziToast.error({ title: 'Error', message: 'Failed to load images.' });
-    })
-    .finally(() => {
-      hideLoader();
-    });
-});
-
-loadMoreButton.addEventListener('click', () => {
-  page += 1;
-  showLoader();
-
-  fetchImages(query, page)
-    .then(data => {
-      renderImages(data.hits);
-      lightbox.refresh();
-    })
-    .catch(error => {
-      iziToast.error({
-        title: 'Error',
-        message: 'Failed to load more images.',
-      });
     })
     .finally(() => {
       hideLoader();
