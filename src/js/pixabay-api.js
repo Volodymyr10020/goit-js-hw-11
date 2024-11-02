@@ -9,7 +9,7 @@ export function fetchImages(query, page = 1) {
 
   const url = `${BASE_URL}?key=${API_KEY}&q=${encodeURIComponent(
     query
-  )}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=12`;
+  )}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=50`;
 
   return fetch(url)
     .then(response => {

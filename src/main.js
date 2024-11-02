@@ -12,9 +12,7 @@ import {
 } from './js/render-functions.js';
 
 const searchForm = document.querySelector('#search-form');
-const loadMoreButton = document.querySelector('#load-more');
 let query = '';
-let page = 1;
 let lightbox;
 
 searchForm.addEventListener('submit', e => {
@@ -26,7 +24,6 @@ searchForm.addEventListener('submit', e => {
   }
 
   clearGallery();
-  page = 1;
   showLoader();
 
   fetchImages(query, page)
