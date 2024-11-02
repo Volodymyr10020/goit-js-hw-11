@@ -1,7 +1,7 @@
 const API_KEY = '46848734-31deafc513cc7a3bd94f1beea';
 const BASE_URL = 'https://pixabay.com/api/';
 
-export function fetchImages(query, page = 1) {
+export function fetchImages(query) {
   if (!query) {
     console.error('Search query is empty');
     return Promise.reject(new Error('Search query is empty'));
@@ -9,7 +9,7 @@ export function fetchImages(query, page = 1) {
 
   const url = `${BASE_URL}?key=${API_KEY}&q=${encodeURIComponent(
     query
-  )}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=50`;
+  )}&image_type=photo&orientation=horizontal&safesearch=true&per_page=50`;
 
   return fetch(url)
     .then(response => {
